@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-public class LocationRepositorylmpl implements  LocationRepository{
+public class LocationRepositorylmpl implements LocationRepository {
     private final SessionFactory sessionFactory;
 
     public LocationRepositorylmpl(SessionFactory sessionFactory) {

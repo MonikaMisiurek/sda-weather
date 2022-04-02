@@ -1,8 +1,16 @@
 package com.sda.weather;
 
+import com.sda.weather.location.LocationController;
+
 import java.util.Scanner;
 
 public class UserInterface {
+
+    private LocationController locationController;
+
+    public UserInterface(LocationController locationController) {
+        this.locationController = locationController;
+    }
 
     public void run() {
         System.out.println("Aplikacja została uruchomiona.\n");
@@ -14,6 +22,7 @@ public class UserInterface {
             System.out.println("1.Dodać konkretną lokalizację?");
             System.out.println("2.Wyświetlić aktualnie dodane lokalizacje?");
             System.out.println("3.Pobrać wartości pogodowe?");
+            System.out.println("4.Zamknij aplikację.");
 
             int option = scanner.nextInt();
 
@@ -26,6 +35,9 @@ public class UserInterface {
                     break;
                 case 3:
                     loadWeather(); // todo add a break
+                    break;
+                case 4:
+                    return;
                 default:
                     System.out.println("Nie ma takiej opcji.");
             }
@@ -60,8 +72,7 @@ public class UserInterface {
                 "\"country\":\"%s\"}", city, longitude, latitude, region, country);
         System.out.println("Wysyłany http request: " + requestBody);
         // todo use locationController
-
-//        String responseBody = entryController.createEntry(requestBody);
-//        System.out.println("Odebrany http response: " + responseBody);
+        String responseBody = locationController.createLocation(requestBody);
+        System.out.println("Odebrany http response: " + responseBody);
     }
 }
