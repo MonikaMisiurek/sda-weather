@@ -1,15 +1,14 @@
-package com.sda.weather.AddLocation;
+package com.sda.weather.location;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.Instant;
 
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name= "location")
+@Table(name = "location")
 public class Location {
 
     @Id
@@ -20,7 +19,6 @@ public class Location {
     private Long latitude;
     private String region;
     private String country;
-
 
     public Location(String city, Long longitude, Long latitude, String region, String country) {
         this.city = city;

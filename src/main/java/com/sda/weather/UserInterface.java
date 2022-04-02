@@ -4,9 +4,7 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-
     public void run() {
-
         System.out.println("Aplikacja została uruchomiona.\n");
 
         Scanner scanner = new Scanner(System.in);
@@ -17,39 +15,32 @@ public class UserInterface {
             System.out.println("2.Wyświetlić aktualnie dodane lokalizacje?");
             System.out.println("3.Pobrać wartości pogodowe?");
 
-
             int option = scanner.nextInt();
 
             switch (option) {
                 case 1:
                     addLocation();
-
                     break;
                 case 2:
-                    showLocation();
+                    showLocation(); // todo rename to showLocations
                     break;
                 case 3:
-                    loadWeather();
+                    loadWeather(); // todo add a break
                 default:
                     System.out.println("Nie ma takiej opcji.");
             }
-
-
         }
     }
 
     private void loadWeather() {
-
         System.out.println("Pobieram aktualną pogodę...");
     }
-
 
     private void showLocation() {
         System.out.println("Wyświetlam aktualne lokalizacje: ");
     }
 
     private void addLocation() {
-
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj nazwę miasta");
         String city = scanner.nextLine();
@@ -66,9 +57,9 @@ public class UserInterface {
                 "\"longitude\":\"%s\"," +
                 "\"latitude\":\"%s\"," +
                 "\"region\":\"%s\"," +
-                "\"country\":\"%s\"}", city, longitude,latitude, region, country );
+                "\"country\":\"%s\"}", city, longitude, latitude, region, country);
         System.out.println("Wysyłany http request: " + requestBody);
-
+        // todo use locationController
 
 //        String responseBody = entryController.createEntry(requestBody);
 //        System.out.println("Odebrany http response: " + responseBody);
